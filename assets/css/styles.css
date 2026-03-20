@@ -4,49 +4,253 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #9595c9;
-  color: #1a1a1a;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #7ec8ff 0%, #2f6496 45%, #16304d 100%);
+  color: #11263b;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
+  padding: 2rem 0;
 }
 
 .container {
-  width: min(700px, 92%);
+  width: min(1100px, 94%);
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.topbar {
+  text-align: center;
+  color: #f4f9ff;
 }
 
 h1 {
   margin: 0;
-  color: white;
-  border: 4px solid #001f3f;
-  padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  font-size: 2.5rem;
-  text-align: center;
+  letter-spacing: 0.08em;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
 }
 
 .card {
   margin-top: 2rem;
-  background: #ffffff;
-  border: 1px solid #d3dce6;
-  border-radius: 10px;
-  padding: 1rem;
-  max-width: 400px;
+  background: #f4fbff;
+  border: 2px solid #d1e7f9;
+  border-radius: 16px;
+  padding: 1.2rem;
   width: 100%;
+  box-shadow: 0 14px 30px rgba(7, 26, 47, 0.2);
+}
+
+.setup-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.2rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.panel-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.own-board-wrap {
+  margin-top: 0.7rem;
+}
+
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.board-grid {
+  --board-size: 10;
+  display: grid;
+  grid-template-columns: repeat(var(--board-size), minmax(28px, 44px));
+  gap: 4px;
+  background: #9cc7e6;
+  padding: 10px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border: 1px solid #2f5f8a;
+  border-radius: 6px;
+  background: #d8efff;
+  color: #0b3558;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.cell--ship {
+  background: #4fa85d;
+  border-color: #2f7441;
+  color: #ffffff;
+}
+
+.cell--hit {
+  background: #d64242;
+  border-color: #8f1f1f;
+  color: #ffffff;
+}
+
+.cell--miss {
+  background: #8fb6d6;
+  border-color: #446c8f;
+  color: #173a56;
+}
+
+.ship-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.ship-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e9f6ff;
+  border: 1px solid #c8e4f8;
+  border-radius: 8px;
+  padding: 0.4rem 0.55rem;
+}
+
+.tag {
+  border-radius: 999px;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.45rem;
+}
+
+.tag--ok {
+  background: #27b366;
+  color: #ffffff;
+}
+
+.tag--pending {
+  background: #f2b84b;
+  color: #2d1b00;
+}
+
+.turn-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 18, 34, 0.75);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.turn-screen__card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  width: min(480px, 92%);
+}
+
+.turn-screen__badge {
+  display: inline-block;
+  background: linear-gradient(120deg, #ffe67a 0%, #ffb347 45%, #ff6a3d 100%);
+  color: #1b0d00;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+  margin-bottom: 0.65rem;
+}
+
+.turn-screen--victory {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 227, 139, 0.4), transparent 35%),
+    radial-gradient(circle at 80% 15%, rgba(255, 136, 85, 0.35), transparent 30%),
+    rgba(8, 12, 26, 0.88);
+}
+
+.turn-screen--victory .turn-screen__card {
+  width: min(560px, 94%);
+  padding: 1.6rem 1.4rem;
+  border: 2px solid #ffcf6d;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 28px rgba(255, 196, 91, 0.4);
+  animation: victory-card-pop 360ms ease-out;
+}
+
+.turn-screen--victory #turn-screen-title {
+  margin-top: 0.1rem;
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.6rem, 4vw, 2.15rem);
+  color: #0b1f32;
+}
+
+.turn-screen--victory #turn-screen-message {
+  margin: 0 auto 1.1rem auto;
+  max-width: 34ch;
+  color: #2a3f52;
+}
+
+.turn-screen--victory #btn-continue {
+  display: block;
+  margin: 0 auto;
+  min-width: 200px;
+  font-weight: 700;
+  background: linear-gradient(120deg, #ffb14f 0%, #ff6a3d 100%);
+  color: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes victory-card-pop {
+  from {
+    transform: scale(0.95);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 button {
-  margin-top: 0.5rem;
-  padding: 0.5rem 0.9rem;
+  padding: 0.5rem 0.8rem;
   border: none;
   border-radius: 6px;
-  background: #1976d2;
+  background: #1f76bf;
   color: white;
   cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .setup-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .board-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .board-grid {
+    grid-template-columns: repeat(var(--board-size), minmax(24px, 1fr));
+    width: 100%;
+  }
 }

@@ -3,21 +3,58 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Battleship - Proyecto Base</title>
+	<title>Battleship</title>
 	<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 	<main class="container">
-		<h1>BATTLESHIP LOCAL</h1>
-		<p>Proyecto inicial para equipo principiante.</p>
+		<header class="topbar">
+			<h1>BATTLESHIP</h1>
+			<p>El arte de la programacion.</p>
+		</header>
 
-		<section class="card">
-			<h2>Estado del proyecto</h2>
-			<p id="status">Base creada: HTML + CSS + JavaScript conectados.</p>
-			<button id="btn-test" type="button">Probar boton</button>
+		<section class="card setup-layout">
+			<div class="panel-left">
+				<h2 id="player-title">Turno de colocacion: Jugador 1</h2>
+				<p id="status">Selecciona un barco y haz click en el tablero para colocarlo.</p>
+
+				<div class="controls">
+					<button id="btn-rotate" type="button">Rotar (Horizontal)</button>
+					<button id="btn-reset-board" type="button">Limpiar tablero</button>
+					<button id="btn-confirm-player" type="button" disabled>Ready</button>
+					<button id="btn-restart-game" type="button">Reiniciar juego</button>
+				</div>
+
+				<h3 id="ship-list-title">Barcos por colocar</h3>
+				<ul id="ship-list" class="ship-list"></ul>
+			</div>
+
+			<div class="panel-right">
+				<div class="board-header">
+					<strong id="action-board-title">Tablero de colocacion</strong>
+					<span id="orientation-label">Orientacion: Horizontal</span>
+				</div>
+				<div id="placement-board" class="board-grid" aria-label="Tablero de colocacion"></div>
+
+				<div id="own-board-wrap" class="own-board-wrap hidden">
+					<div class="board-header">
+						<strong>Tu tablero</strong>
+					</div>
+					<div id="own-board" class="board-grid" aria-label="Tablero propio"></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="turn-screen" class="turn-screen hidden" aria-live="polite">
+			<div class="turn-screen__card">
+				<span id="turn-screen-badge" class="turn-screen__badge hidden">VICTORIA</span>
+				<h2 id="turn-screen-title">Turno de Jugador 2</h2>
+				<p id="turn-screen-message">Pasa la computadora al siguiente jugador y presiona continuar.</p>
+				<button id="btn-continue" type="button">Continuar</button>
+			</div>
 		</section>
 	</main>
 
-	<script src="assets/js/app.js"></script>
+	<script type="module" src="assets/js/app.js"></script>
 </body>
 </html>
