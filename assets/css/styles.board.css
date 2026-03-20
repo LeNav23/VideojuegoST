@@ -1,0 +1,70 @@
+﻿/* Archivo: styles.board.css | Aqui estan los estilos visuales del tablero y de cada celda del juego. */
+.board-grid {
+  --board-size: 10;
+  display: grid;
+  grid-template-columns: repeat(var(--board-size), minmax(28px, 44px));
+  gap: 4px;
+  background: #9cc7e6;
+  padding: 10px;
+  border-radius: 12px;
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 10px 18px rgba(8, 26, 44, 0.22);
+}
+
+.board-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 15%, rgba(112, 214, 255, 0.3) 50%, transparent 85%);
+  transform: translateX(-120%);
+  animation: board-scan 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border: 1px solid #2f5f8a;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.55), rgba(216, 239, 255, 0.98) 58%);
+  color: #0b3558;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.03em;
+  margin: 0;
+  padding: 0;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 180ms ease;
+}
+
+.cell:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(112, 214, 255, 0.6), 0 4px 10px rgba(4, 30, 53, 0.25);
+}
+
+.cell--ship {
+  background: linear-gradient(145deg, #0b6f9f 0%, #0e9ac9 45%, #11c0e8 100%);
+  border-color: #0b6f9f;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(17, 192, 232, 0.45);
+}
+
+.cell--hit {
+  background: linear-gradient(145deg, #ff3d52 0%, #e51636 100%);
+  border-color: #b70f2a;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 61, 82, 0.65);
+  animation: hit-pulse 420ms ease-out;
+}
+
+.cell--miss {
+  background: linear-gradient(145deg, #1f9dcd 0%, #1d78a8 100%);
+  border-color: #1a648c;
+  color: #ffffff;
+  box-shadow: 0 0 11px rgba(31, 157, 205, 0.45);
+  animation: miss-ripple 460ms ease-out;
+}
+

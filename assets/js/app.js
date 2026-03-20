@@ -1,3 +1,4 @@
+﻿// Archivo: app.js | Este es el punto de entrada: conecta la logica con la UI y eventos de botones/clicks.
 import { createInitialState, resetSetupPlayer } from "./state.js";
 import {
   getNextShipToPlace,
@@ -138,7 +139,7 @@ function handleAttack(row, col) {
     playSfx(victorySfx);
     showTurnScreen(elements, `Victoria de ${attacker.name}`, {
       variant: "victory",
-      message: "Flota enemiga destruida. Presiona jugar otra vez para una nueva partida.",
+      message: "",
       buttonLabel: "Jugar otra vez",
     });
     updateStatus(elements, `${attacker.name} destruyo toda la flota enemiga.`);
@@ -319,3 +320,4 @@ function getOpponentPlayer() {
 function getNextPlayerIndex() {
   return state.currentTurnPlayerIndex === 0 ? 1 : 0;
 }
+

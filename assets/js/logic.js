@@ -1,3 +1,4 @@
+﻿// Archivo: logic.js | Aqui esta la logica principal del juego (reglas, validaciones y acciones de batalla).
 import { GAME_CONFIG } from "./config.js";
 
 // Devuelve el barco que sigue para colocar en setup.
@@ -44,3 +45,4 @@ export function isPlayerDefeated(player) {
     ship.positions.every(({ row, col }) => player.shotsReceived[row][col] === "hit")
   );
 }
+

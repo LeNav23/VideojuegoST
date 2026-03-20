@@ -1,0 +1,26 @@
+﻿/* Archivo: styles.responsive.css | Aqui van los ajustes para pantallas chicas (responsive). */
+@media (max-width: 900px) {
+  .setup-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    padding: 0.3rem 0.55rem 0.65rem;
+  }
+
+  .board-header {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.87rem;
+  }
+
+  .board-grid {
+    grid-template-columns: repeat(var(--board-size), minmax(24px, 1fr));
+    width: 100%;
+  }
+
+  button {
+    font-size: 0.85rem;
+  }
+}
+

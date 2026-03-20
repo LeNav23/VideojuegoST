@@ -1,0 +1,44 @@
+﻿/* Archivo: styles.base.css | Aqui van estilos base: fuentes, variables de color, reset y clases globales. */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink-deep: #071f37;
+  --ink-mid: #0f355c;
+  --sea-light: #d8efff;
+  --panel-glass: rgba(244, 251, 255, 0.93);
+  --line-cyan: #70d6ff;
+  --line-soft: #b9dcf6;
+  --alert-red: #ff4d5f;
+  --accent-gold: #f2d17b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Rajdhani', 'Segoe UI', Tahoma, sans-serif;
+  background-image: url('../img/mar.avif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--ink-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+h1 {
+  margin: 0;
+  letter-spacing: 0.08em;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.hidden {
+  display: none !important;
+}
+

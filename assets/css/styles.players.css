@@ -1,0 +1,65 @@
+﻿/* Archivo: styles.players.css | Aqui se cambian colores/estilos segun el jugador activo (Jugador 1 o Jugador 2). */
+/* ESTILOS POR JUGADOR */
+
+/* Jugador 1 - Azul Marino */
+.container.player-1 {
+  color: #001f3f;
+}
+
+.container.player-1 h1,
+.container.player-1 h2,
+.container.player-1 h3,
+.container.player-1 p,
+.container.player-1 strong,
+.container.player-1 span {
+  color: #001f3f;
+}
+
+.container.player-1 .board-grid {
+  background: #b3d9ff;
+  border: 3px solid #001f3f;
+}
+
+/* Jugador 2 - Rojo */
+.container.player-2 {
+  color: #8b0000;
+}
+
+.container.player-2 h1,
+.container.player-2 h2,
+.container.player-2 h3,
+.container.player-2 p,
+.container.player-2 strong,
+.container.player-2 span {
+  color: #8b0000;
+}
+
+.container.player-2 .board-grid {
+  background: #ffcccc;
+  border: 3px solid #8b0000;
+}
+
+.container.player-1 .controls button,
+.container.player-1 #btn-confirm-player,
+.container.player-1 #btn-restart-game {
+  background: #001f3f;
+}
+
+.container.player-1 .controls button:hover,
+.container.player-1 #btn-confirm-player:hover,
+.container.player-1 #btn-restart-game:hover {
+  background: #003d7a;
+}
+
+.container.player-2 .controls button,
+.container.player-2 #btn-confirm-player,
+.container.player-2 #btn-restart-game {
+  background: #8b0000;
+}
+
+.container.player-2 .controls button:hover,
+.container.player-2 #btn-confirm-player:hover,
+.container.player-2 #btn-restart-game:hover {
+  background: #cc0000;
+}
+

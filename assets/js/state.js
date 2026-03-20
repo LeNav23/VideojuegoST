@@ -1,3 +1,4 @@
+﻿// Archivo: state.js | Aqui se maneja el estado global de la partida y datos de jugadores/tableros.
 import { GAME_CONFIG, PLAYER_NAMES } from "./config.js";
 
 function createMatrix(defaultValue = null) {
@@ -40,3 +41,4 @@ export function resetSetupPlayer(player) {
     placed: false,
   }));
 }
+

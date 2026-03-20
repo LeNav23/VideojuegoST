@@ -1,0 +1,74 @@
+﻿/* Archivo: styles.components.css | Aqui viven componentes UI como botones, tags, lista de barcos y estado. */
+.ship-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.ship-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(145deg, #ecf7ff 0%, #d7ebfb 100%);
+  border: 1px solid #c8e4f8;
+  border-radius: 10px;
+  padding: 0.4rem 0.55rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.tag {
+  border-radius: 999px;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.45rem;
+}
+
+.tag--ok {
+  background: #27b366;
+  color: #ffffff;
+}
+
+.tag--pending {
+  background: #f2b84b;
+  color: #2d1b00;
+}
+
+button {
+  padding: 0.56rem 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(140deg, #1f76bf 0%, #155994 100%);
+  color: white;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 14px rgba(8, 39, 66, 0.3);
+  transition: transform 120ms ease, filter 120ms ease, box-shadow 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 10px 16px rgba(8, 39, 66, 0.36);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#status {
+  font-size: 1.05rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  background: rgba(112, 214, 255, 0.13);
+  border: 1px solid rgba(112, 214, 255, 0.35);
+}
+

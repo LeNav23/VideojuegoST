@@ -1,3 +1,4 @@
+﻿// Archivo: config.js | Aqui guardamos configuraciones generales del juego, como tamanos y constantes.
 // Config general del juego (se puede cambiar facil aqui).
 export const GAME_CONFIG = {
   BOARD_SIZE: 10,
@@ -11,3 +12,4 @@ export const GAME_CONFIG = {
 };
 
 export const PLAYER_NAMES = ["Jugador 1", "Jugador 2"];
+

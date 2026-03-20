@@ -1,3 +1,4 @@
+﻿// Archivo: ui.js | Aqui se renderiza y actualiza toda la interfaz visual del juego en pantalla.
 import { GAME_CONFIG } from "./config.js";
 
 export function getElements() {
@@ -56,9 +57,12 @@ export function showTurnScreen(elements, title, options = {}) {
   const { variant = "normal", message, buttonLabel } = options;
 
   elements.turnScreenTitle.textContent = title;
-  if (message) {
-    elements.turnScreenMessage.textContent = message;
-  }
+  const resolvedMessage = message ?? "";
+  elements.turnScreenMessage.textContent = resolvedMessage;
+  elements.turnScreenMessage.classList.toggle(
+    "hidden",
+    resolvedMessage.trim().length === 0,
+  );
 
   elements.continueButton.textContent = buttonLabel || "Continuar";
   elements.turnScreen.classList.toggle("turn-screen--victory", variant === "victory");
@@ -249,3 +253,4 @@ function renderOwnBoard(elements, currentPlayer) {
     cell.disabled = true;
   });
 }
+
