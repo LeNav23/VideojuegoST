@@ -288,6 +288,14 @@ function isShipSunk(player, shipId) {
 }
 
 function renderUI() {
+  // Agregar clase del jugador actual al contenedor
+  const container = document.querySelector('.container');
+  if (container) {
+    container.classList.remove('player-1', 'player-2');
+    const currentPlayer = state.phase === 'setup' ? state.currentSetupPlayerIndex : state.currentTurnPlayerIndex;
+    container.classList.add(`player-${currentPlayer + 1}`);
+  }
+  
   render(elements, state, {
     getSetupPlayer,
     getTurnPlayer,

@@ -5,10 +5,15 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, sans-serif;
-  background: radial-gradient(circle at 20% 20%, #7ec8ff 0%, #2f6496 45%, #16304d 100%);
+  background-image: url('../img/mar.avif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: #11263b;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
   padding: 2rem 0;
 }
@@ -17,17 +22,27 @@ body {
   width: min(1100px, 94%);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .topbar {
   text-align: center;
   color: #f4f9ff;
+  width: 100%;
 }
 
 h1 {
   margin: 0;
   letter-spacing: 0.08em;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.titulo-img {titulo-img}
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  margin: 1rem 0;
 }
 
 .card {
@@ -38,6 +53,8 @@ h1 {
   padding: 1.2rem;
   width: 100%;
   box-shadow: 0 14px 30px rgba(7, 26, 47, 0.2);
+  display: flex;
+  justify-content: center;
 }
 
 .setup-layout {
@@ -92,21 +109,93 @@ h1 {
 }
 
 .cell--ship {
-  background: #4fa85d;
-  border-color: #2f7441;
+  background: #00ff00;
+  border-color: #00cc00;
   color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
 }
 
 .cell--hit {
-  background: #d64242;
-  border-color: #8f1f1f;
+  background: #ff0000;
+  border-color: #cc0000;
   color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
 
 .cell--miss {
-  background: #8fb6d6;
-  border-color: #446c8f;
-  color: #173a56;
+  background: #00bfff;
+  border-color: #0099cc;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+}
+
+/* ESTILOS POR JUGADOR */
+
+/* Jugador 1 - Azul Marino */
+.container.player-1 {
+  color: #001f3f;
+}
+
+.container.player-1 h1,
+.container.player-1 h2,
+.container.player-1 h3,
+.container.player-1 p,
+.container.player-1 strong,
+.container.player-1 span {
+  color: #001f3f;
+}
+
+.container.player-1 .board-grid {
+  background: #b3d9ff;
+  border: 3px solid #001f3f;
+}
+
+/* Jugador 2 - Rojo */
+.container.player-2 {
+  color: #8b0000;
+}
+
+.container.player-2 h1,
+.container.player-2 h2,
+.container.player-2 h3,
+.container.player-2 p,
+.container.player-2 strong,
+.container.player-2 span {
+  color: #8b0000;
+}
+
+.container.player-2 .board-grid {
+  background: #ffcccc;
+  border: 3px solid #8b0000;
+}
+
+.container.player-1 .controls button,
+.container.player-1 #btn-confirm-player,
+.container.player-1 #btn-restart-game {
+  background: #001f3f;
+}
+
+.container.player-1 .controls button:hover,
+.container.player-1 #btn-confirm-player:hover,
+.container.player-1 #btn-restart-game:hover {
+  background: #003d7a;
+}
+
+.container.player-2 .controls button,
+.container.player-2 #btn-confirm-player,
+.container.player-2 #btn-restart-game {
+  background: #8b0000;
+}
+
+.container.player-2 .controls button:hover,
+.container.player-2 #btn-confirm-player:hover,
+.container.player-2 #btn-restart-game:hover {
+  background: #cc0000;
+}
+
+/* Mantener título BATTLESHIP siempre blanco */
+.topbar h1 {
+  color: #f4f9ff !important;
 }
 
 .ship-list {
@@ -146,10 +235,22 @@ h1 {
 .turn-screen {
   position: fixed;
   inset: 0;
-  background: rgba(0, 18, 34, 0.75);
+  background-image: url('../img/barcos.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   display: grid;
   place-items: center;
   padding: 1rem;
+}
+
+.turn-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(100, 100, 120, 0.5);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .turn-screen__card {
@@ -158,6 +259,8 @@ h1 {
   padding: 1rem 1.2rem;
   text-align: center;
   width: min(480px, 92%);
+  position: relative;
+  z-index: 1;
 }
 
 .turn-screen__badge {

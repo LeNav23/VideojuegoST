@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Battleship - Portada</title>
+	<link rel="stylesheet" href="assets/css/splash.css">
+</head>
+<body class="splash-screen">
+	<main class="splash-container">
+		<div class="splash-content">
+			<img src="assets/img/titulo.png" alt="Battleship Local" class="splash-titulo-img">
+			<h2 class="splash-subtitle">LA BATALLA INICIA AQUÍ</h2>
+			<button id="btn-play" class="btn-play">JUGAR</button>
+		</div>
+	</main>
+
+	<script>
+		document.getElementById('btn-play').addEventListener('click', () => {
+			window.location.href = 'index.html';
+		});
+	</script>
+</body>
+</html>
